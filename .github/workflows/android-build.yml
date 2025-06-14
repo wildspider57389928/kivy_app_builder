@@ -18,11 +18,15 @@ jobs:
 
     - name: Install dependencies
       run: |
-        sudo apt update
-        sudo apt install -y zip unzip openjdk-17-jdk python3-pip build-essential git
+        sudo apt-get update
+        sudo apt-get install -y zip unzip openjdk-17-jdk python3-pip build-essential git
         pip install --upgrade pip
         pip install buildozer cython
-        yes | buildozer android update
+
+    - name: Initialize buildozer
+      run: |
+        buildozer init
+        cat buildozer.spec  # فقط برای بررسی
 
     - name: Build APK
       run: |
@@ -33,12 +37,3 @@ jobs:
       with:
         name: HelloWorld-APK
         path: bin/*.apk
-
-- name: Install dependencies
-  run: |
-    sudo apt-get update || true
-    sudo apt-get install -y zip unzip openjdk-17-jdk python3-pip build-essential git || true
-    pip install --upgrade pip || true
-    pip install buildozer cython || true
-    yes | buildozer android update || true
-
