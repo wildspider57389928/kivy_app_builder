@@ -18,7 +18,7 @@ jobs:
           docker run --rm \
             -v ${{ github.workspace }}:/home/user/app \
             kivy/buildozer \
-            buildozer android debug
+            buildozer android release
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
