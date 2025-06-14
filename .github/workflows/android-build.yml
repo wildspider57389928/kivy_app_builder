@@ -1,34 +1,35 @@
 name: Build Android APK
 
 on:
-  push:
-    branches: [ main ]
+  push:
+    branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.10"
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
 
-    - name: Install dependencies
-      run: |
-        sudo apt update
-        sudo apt install -y zip unzip openjdk-17-jdk python3-pip build-essential git
-        pip install --upgrade pip
-        pip install buildozer cython
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y zip unzip openjdk-17-jdk python3-pip build-essential git
+        pip install --upgrade pip
+        pip install buildozer cython
+        yes | buildozer android update
 
-    - name: Build APK
-      run: |
-        buildozer android debug
+    - name: Build APK
+      run: |
+        buildozer android debug
 
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: HelloWorld-APK
-        path: bin/*.apk
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: HelloWorld-APK
+        path: bin/*.apk
