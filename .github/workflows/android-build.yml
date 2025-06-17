@@ -1,2 +1,6 @@
-- name: Buildozer action
-  uses: ArtemSBulgakov/buildozer-action@v1.2.0
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Buildozer action
+        uses: ArtemSBulgakov/buildozer-action@v1.2.0
