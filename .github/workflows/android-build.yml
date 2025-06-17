@@ -6,5 +6,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-        - name: Buildozer action (fix)
-        uses: gxosty/buildozer-action@1.0.0
+          - name: Buildozer action (fix)
+          uses: gxosty/buildozer-action@1.0.0
