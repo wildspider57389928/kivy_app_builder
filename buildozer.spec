@@ -358,7 +358,7 @@ android.allow_backup = True
 #
 
 # (str) Path to a custom kivy-ios folder
-ios.kivy_ios_dir = .
+#ios.kivy_ios_dir = .
 # Alternately, specify the URL and branch of a git checkout:
 ios.kivy_ios_url = https://github.com/kivy/kivy-ios
 ios.kivy_ios_branch = master
