@@ -1,6 +1,3 @@
-import ctypes
-user32 = ctypes.windll.user32
-user32.SetProcessDPIAware()  # برنامه DPI-aware میشه
 from kivy.config import Config
 Config.set('graphics', 'orientation', 'portrait')
 Config.set('graphics', 'resizable', False)
