@@ -25,6 +25,7 @@ from kivy.uix.camera import Camera
 from kivy.animation import Animation
 from kivy.graphics import Color,Rectangle,Line
 from kivy.core.window import Window
+from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 
 import os
@@ -135,15 +136,14 @@ class MainApp(App):
         return self.layout_progress
     def loading_func(self,dt):
         if self.first:
-            from pygame import mixer
-            mixer.init()
-            self.Music=mixer.Sound('./Assets/music.mp3')
-            self.Music.set_volume(0.5)
-            self.startup=mixer.Sound('./Assets/startup.mp3')
-            self.wrong_sound=mixer.Sound('./Assets/wrong.mp3')
-            self.correct_sound=mixer.Sound('./Assets/correct.mp3')
-            self.wrong_sound.set_volume(0.5)
-            self.correct_sound.set_volume(0.5)
+            self.Music=SoundLoader.load('./Assets/music.mp3')
+            self.Music.volume=0.5
+            self.Music.loop=True
+            self.startup=SoundLoader.load('./Assets/startup.mp3')
+            self.wrong_sound=SoundLoader.load('./Assets/wrong.mp3')
+            self.correct_sound=SoundLoader.load('./Assets/correct.mp3')
+            self.wrong_sound.volume=0.5
+            self.correct_sound.volume=0.5
             self.first=False
         else:
             if self.loading.text==convert_to_persian("در حال بارگزاری."):
@@ -160,7 +160,7 @@ class MainApp(App):
                 self.progress.value=self.progress.value+25
     def buil(self):
         self.startup.play()
-        self.Music.play(-1)
+        self.Music.play()
         self.timer_loop=None
         self.timer_loop_color=None
         self.parent=FloatLayout(size=(360, 640))
@@ -493,12 +493,12 @@ class MainApp(App):
         self.layout.add_widget(Label(text=convert_to_persian('میزان صدای موسیقی'),pos=(0,200),font_size=30))
         self.layout.add_widget(Label(text=convert_to_persian('میزان صدای درست'),pos=(0,50),font_size=30))
         self.layout.add_widget(Label(text=convert_to_persian('میزان صدای نادرست'),pos=(0,-100),font_size=30))
-        music_volume=Slider(pos=(25,1100),min=0, max=100,step=1,value=self.Music.get_volume()*100,size=(400,50),size_hint=(None,None))
-        correct_volume=Slider(pos=(25,950),min=0, max=100,step=1,value=self.correct_sound.get_volume()*100,size=(400,50),size_hint=(None,None))
-        wrong_volume=Slider(pos=(25,800),min=0, max=100,step=1,value=self.wrong_sound.get_volume()*100,size=(400,50),size_hint=(None,None))
-        music_volume.bind(value=lambda instance,value: self.Music.set_volume(value / 100))
-        correct_volume.bind(value=lambda instance,value: self.correct_sound.set_volume(value / 100))
-        wrong_volume.bind(value=lambda  instance,value: self.wrong_sound.set_volume(value / 100))
+        music_volume=Slider(pos=(25,1100),min=0, max=100,step=1,value=self.Music.volume*100,size=(400,50),size_hint=(None,None))
+        correct_volume=Slider(pos=(25,950),min=0, max=100,step=1,value=self.correct_sound.volume*100,size=(400,50),size_hint=(None,None))
+        wrong_volume=Slider(pos=(25,800),min=0, max=100,step=1,value=self.wrong_sound.volume*100,size=(400,50),size_hint=(None,None))
+        music_volume.bind(value=lambda instance,value: setattr(self.Music,"volume",value / 100))
+        correct_volume.bind(value=lambda instance,value: setattr(self.correct_sound,"volume",value / 100))
+        wrong_volume.bind(value=lambda  instance,value: setattr(self.wrong_sound,"volume",value / 100))
         self.layout.add_widget(music_volume)
         self.layout.add_widget(correct_volume)
         self.layout.add_widget(wrong_volume)
