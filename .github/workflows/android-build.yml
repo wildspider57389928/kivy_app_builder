@@ -5,7 +5,8 @@ jobs:
   build-android:
     name: Build for Android
     runs-on: ubuntu-latest
-
+    env:
+      CCACHE_DISABLE: 1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
