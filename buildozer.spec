@@ -13,7 +13,7 @@ package.domain = org.mbb.jadvalzarb
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas,json
+source.include_exts = py,png,jpg,kv,atlas
 # (list) List of inclusions using pattern matching
 #source.include_patterns = Assets/*,Data/*
 # (list) Source files to exclude (let empty to not exclude anything)
@@ -35,8 +35,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = kivy,python3==3.10.12,hostpython3==3.10.12,pyjnius>=1.5.0,bidi,arabic_reshaper
-
+requirements = kivy,python3==3.10.12,hostpython3==3.10.12,pyjnius>=1.5.0
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
 # requirements.source.kivy = ../../kivy
