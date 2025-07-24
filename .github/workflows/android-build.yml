@@ -1,12 +1,14 @@
-name: Build
+name: Build_APK
 
 on: 
   workflow_dispath:
-permissions:
-      contents: write
+
 jobs:
   build-android:
     runs-on: ubuntu-latest
+    
+    permissions:
+        contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,8 +38,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.vars.outputs.tag }}
-          files: dist/hello.txt
+          files: ${{ steps.buildozer.outputs.filename }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-        
