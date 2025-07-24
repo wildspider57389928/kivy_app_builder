@@ -1,7 +1,9 @@
 name: Build
 
-on: [push, pull_request]
-
+on: 
+  workflow_dispath:
+permissions:
+      contents: write
 jobs:
   build-android:
     runs-on: ubuntu-latest
@@ -19,33 +21,23 @@ jobs:
           workdir: .
           buildozer_version: stable
           command: buildozer android debug
+      - name: Compute tag
+        id: vars
+        run: echo "tag=v0.0.${{ github.run_number }}" >> $GITHUB_OUTPUT
 
-      - name: Create Git Tag
+      - name: Create & push git tag
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git tag v1.0.${{ github.run_number }}
-          git push origin v1.0.${{ github.run_number }}name }}
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
-        with:
-          tag_name: v1.0.${{ github.run_number }}
-          release_name: "Release v1.0.${{ github.run_number }}"
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload APK to Release
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git tag "${{ steps.vars.outputs.tag }}"
+          git push origin "${{ steps.vars.outputs.tag }}"
+
+      - name: Upload file to GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ steps.buildozer.outputs.filename }}
-          tag_name: v1.0.${{ github.run_number }}
+          tag_name: ${{ steps.vars.outputs.tag }}
+          files: dist/hello.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-
-
-
 
         
