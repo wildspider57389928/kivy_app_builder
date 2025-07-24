@@ -20,10 +20,32 @@ jobs:
           buildozer_version: stable
           command: buildozer android debug
 
-      - name: Upload APK to GitHub Release
-        if: steps.buildozer.outputs.filename != ''
+      - name: Create Git Tag
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git tag v1.0.${{ github.run_number }}
+          git push origin v1.0.${{ github.run_number }}name }}
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          release_name: "Release v1.0.${{ github.run_number }}"
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload APK to Release
         uses: softprops/action-gh-release@v1
         with:
           files: ${{ steps.buildozer.outputs.filename }}
+          tag_name: v1.0.${{ github.run_number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+
+
+
+
+        
