@@ -2,18 +2,18 @@ name: Build_APK
 
 on:
   workflow_dispatch:
+
 jobs:
   build-android:
     runs-on: ubuntu-latest
-    
+
     permissions:
-        contents: write
+      contents: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-            fetch-depth: 0
-            
+
       - name: Fix Git extraheader permission issue
         run: git config --global --unset-all "http.https://github.com/.extraheader" || true
 
@@ -24,16 +24,14 @@ jobs:
           workdir: .
           buildozer_version: stable
           command: buildozer android debug
+
       - name: Compute tag
         id: vars
         run: echo "tag=v0.0.${{ github.run_number }}" >> $GITHUB_OUTPUT
 
-      - name: Create & push git tag
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git tag "${{ steps.vars.outputs.tag }}"
-          git push origin "${{ steps.vars.outputs.tag }}"
+      # ❌ این مرحله حذف شده:
+      # - name: Create & push git tag
+      #   ...
 
       - name: Upload file to GitHub Release
         uses: softprops/action-gh-release@v1
