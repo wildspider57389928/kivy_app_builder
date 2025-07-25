@@ -5,7 +5,16 @@ base_dir = autoclass('org.kivy.android.PythonActivity').mActivity.getExternalFil
 kivy_home = os.path.join(base_dir, 'kivy_config')
 os.makedirs(kivy_home, exist_ok=True)
 os.environ['KIVY_HOME'] = kivy_home
+from android.permissions import request_permissions, Permission
 
+def ask_android_permissions():
+    request_permissions([
+        Permission.MANAGE_EXTERNAL_STORAGE,
+        Permission.READ_MEDIA_IMAGES,
+        Permission.READ_MEDIA_VIDEO,
+        Permission.READ_MEDIA_AUDIO
+    ])
+ask_android_permissions()
 from kivy.config import Config
 
 
@@ -393,7 +402,7 @@ class MainApp(App):
 
 
     def build(self):
-
+	
 
         self.layout_progress=FloatLayout()
 
