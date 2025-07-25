@@ -1,7 +1,7 @@
 import os
 from jnius import autoclass
 
-base_dir = autoclass('org.kivy.android.PythonActivity').mActivity.getExternalFilesDir(none),getAbsolutePath()
+base_dir = autoclass('org.kivy.android.PythonActivity').mActivity.getExternalFilesDir(None),getAbsolutePath()
 kivy_home = os.path.join(base_dir, 'kivy_config')
 os.makedirs(kivy_home, exist_ok=True)
 os.environ['KIVY_HOME'] = kivy_home
