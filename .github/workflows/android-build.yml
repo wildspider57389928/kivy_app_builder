@@ -29,10 +29,6 @@ jobs:
         id: vars
         run: echo "tag=v0.0.${{ github.run_number }}" >> $GITHUB_OUTPUT
 
-      # ❌ این مرحله حذف شده:
-      # - name: Create & push git tag
-      #   ...
-
       - name: Upload file to GitHub Release
         uses: softprops/action-gh-release@v1
         with:
