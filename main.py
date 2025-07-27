@@ -379,7 +379,7 @@ class Product(FloatLayout):
 
 class MainApp(App):
     def on_start(self):
-	ask_file_permissions()	
+	    ask_file_permissions()	
     def build(self):
 
 
