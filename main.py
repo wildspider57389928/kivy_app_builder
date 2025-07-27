@@ -104,15 +104,14 @@ import json
 
 #from bidi.algorithm import get_display
 
+from android.permissions import request_permissions, Permission
 
-
-from android.permissions import request_permissions
-request_permissions([
-        'android.permission.MANAGE_EXTERNAL_STORAGE',
-        'android.permission.READ_MEDIA_IMAGES',
-        'android.permission.READ_MEDIA_VIDEO',
-        'android.permission.READ_MEDIA_AUDIO'
-])
+def ask_file_permissions():
+    request_permissions([
+        Permission.READ_MEDIA_IMAGES,
+        Permission.READ_MEDIA_VIDEO,
+        Permission.READ_MEDIA_AUDIO,
+    ])
 
 
 
@@ -379,8 +378,8 @@ class Product(FloatLayout):
                                background_color=(0.831, 0.051, 0.376, 1.0)))
 
 class MainApp(App):
-
-
+    def on_start(self):
+	ask_file_permissions()	
     def build(self):
 
 
