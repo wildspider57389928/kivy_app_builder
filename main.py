@@ -376,11 +376,7 @@ class Product(FloatLayout):
 
 class MainApp(App):
     def on_start(self):    
-	request_permissions([
-        	Permission.READ_MEDIA_IMAGES,
-        	Permission.READ_MEDIA_VIDEO,
-        	Permission.READ_MEDIA_AUDIO,
-	])
+	    request_permissions([Permission.READ_MEDIA_IMAGES,Permission.READ_MEDIA_VIDEO,Permission.READ_MEDIA_AUDIO])
     def build(self):
 
 
