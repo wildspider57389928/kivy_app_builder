@@ -112,9 +112,9 @@ def ask_file_permissions():
         Permission.READ_MEDIA_VIDEO,
         Permission.READ_MEDIA_AUDIO,
     ])
-
-
-
+from android.storage import app_storage_path
+app_path = app_storage_path()
+os.environ["KIVY_HOME"]=app_path
 
 
 
