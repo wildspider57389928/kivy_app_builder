@@ -1,3 +1,11 @@
+from android.permissions import request_permissions, Permission
+
+from android.storage import app_storage_path
+kivy_home = os.path.join(app_storage_path(), ".kivy")
+os.environ["KIVY_HOME"] = kivy_home
+os.makedirs(os.path.join(kivy_home, "icon"), exist_ok=True)
+
+
 from kivy.config import Config
 
 
@@ -104,17 +112,6 @@ import json
 
 #from bidi.algorithm import get_display
 
-from android.permissions import request_permissions, Permission
-
-def ask_file_permissions():
-    request_permissions([
-        Permission.READ_MEDIA_IMAGES,
-        Permission.READ_MEDIA_VIDEO,
-        Permission.READ_MEDIA_AUDIO,
-    ])
-from android.storage import app_storage_path
-app_path = app_storage_path()
-os.environ["KIVY_HOME"]=app_path
 
 
 
@@ -378,8 +375,12 @@ class Product(FloatLayout):
                                background_color=(0.831, 0.051, 0.376, 1.0)))
 
 class MainApp(App):
-    def on_start(self):
-	    ask_file_permissions()	
+    def on_start(self):    
+	request_permissions([
+        	Permission.READ_MEDIA_IMAGES,
+        	Permission.READ_MEDIA_VIDEO,
+        	Permission.READ_MEDIA_AUDIO,
+	])
     def build(self):
 
 
