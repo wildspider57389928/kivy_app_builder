@@ -886,7 +886,7 @@ class MainApp(App):
     def create_math_question(self,state):
 
 
-          with open(resource_find('Assets/math_{state}.json'),'r',encoding='utf-8') as data:
+          with open(resource_find('Data/math_{state}.json'),'r',encoding='utf-8') as data:
 
 
             loaded=json.load(data)
