@@ -811,10 +811,10 @@ class MainApp(App):
           self.create_math_question('easy')
 
 
-          self.timer=Label(pos=(-180,380),text='30',font_size=30)
+          self.timer=Label(pos=(-180,380),text='30',font_size=30,pos_hint={"x":-0.2,"y":0.4})
 
 
-          self.correct_incorrect=Label(pos=(0,-250),text='',font_size=40)
+          self.correct_incorrect=Label(pos=(0,-250),text='',font_size=40,pos_hint={"x":0,"y":-0.1})
 
 
           self.layout.add_widget(self.timer)
@@ -841,10 +841,10 @@ class MainApp(App):
           self.create_math_question('medium')
 
 
-          self.timer=Label(pos=(-180,380),text='40',font_size=30)
+          self.timer=Label(pos=(-180,380),text='40',font_size=30,pos_hint={"x":-0.2,"y":0.4})
 
 
-          self.correct_incorrect=Label(pos=(0,-250),text='',font_size=40)
+          self.correct_incorrect=Label(pos=(0,-250),text='',font_size=40,pos_hint={"x":0,"y":-0.1})
 
 
           self.layout.add_widget(self.timer)
@@ -871,10 +871,10 @@ class MainApp(App):
           self.create_math_question('hard')
 
 
-          self.timer=Label(pos=(-180,380),text='60',font_size=30)
+          self.timer=Label(pos=(-180,380),text='60',font_size=30,pos_hint={"x":-0.2,"y":0.4})
 
 
-          self.correct_incorrect=Label(pos=(0,-250),text='',font_size=40)
+          self.correct_incorrect=Label(pos=(0,-250),text='',font_size=40,pos_hint={"x":0,"y":-0.1})
 
 
           self.layout.add_widget(self.timer)
@@ -904,19 +904,19 @@ class MainApp(App):
           self.answer=convert_to_persian(question_num[question_num['correct_answer']])
 
 
-          self.layout.add_widget(Label(pos=(0,300),text=convert_to_persian(question),halign='right',valign='top',font_size=25,color=(1,1,1,1)))
+          self.layout.add_widget(Label(pos=(0,300),text=convert_to_persian(question),halign='right',valign='top',font_size=60,color=(0,0,0,1),pos_hint={"x":0,"y":0.2}))
 
 
-          self.btn1=Button(text=convert_to_persian(answers[0]),pos=(250,1400),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
+          self.btn1=Button(text=convert_to_persian(answers[0]),pos=(300,1300),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
 
 
-          self.btn2=Button(text=convert_to_persian(answers[1]),pos=(450,1400),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
+          self.btn2=Button(text=convert_to_persian(answers[1]),pos=(500,1300),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
 
 
-          self.btn3=Button(text=convert_to_persian(answers[2]),pos=(250,1200),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
+          self.btn3=Button(text=convert_to_persian(answers[2]),pos=(300,1100),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
 
 
-          self.btn4=Button(text=convert_to_persian(answers[3]),pos=(450,1200),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
+          self.btn4=Button(text=convert_to_persian(answers[3]),pos=(500,1100),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
 
 
           self.btn1.bind(on_press=self.choice_math)
