@@ -376,9 +376,9 @@ class MainApp(App):
     def build(self):
         self.layout_progress=FloatLayout()
         self.layout_progress.add_widget(BlueScreen())
-        self.progress=ProgressBar(max=100,size_hint=(None,None),size=(Window.width,200),pos=(50,100))
-        self.loading=Label(text=convert_to_persian("در حال بارگزاری..."),pos=(0,-250),font_size=40)
-        self.layout_progress.add_widget(Label(text=convert_to_persian('خوش آمدید'),pos=(125,300),font_size=50,text_size=(450,None)))
+        self.progress=ProgressBar(max=100,size_hint=(1,None),size=(0,200),pos=(50,100),pos_hint={"x":0})
+        self.loading=Label(text=convert_to_persian("در حال بارگزاری..."),pos=(0,-250),font_size=40,color=(0,0,0,1))
+        self.layout_progress.add_widget(Label(text=convert_to_persian('خوش آمدید'),pos=(125,300),font_size=50,text_size=(450,None),color=(0,0,0,1)))
         self.layout_progress.add_widget(self.loading)
         self.layout_progress.add_widget(self.progress)
         self.loading_loop=Clock.schedule_interval(self.loading_func,1)
