@@ -617,11 +617,6 @@ class MainApp(App):
         self.layout.add_widget(img3)
         self.layout.add_widget(img4)
 
-
-
-        self.layout.add_widget(img)
-
-
     def jadval_zarb(self,instance):
 
 
