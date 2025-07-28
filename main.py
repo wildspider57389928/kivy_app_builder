@@ -22,7 +22,7 @@ Config.set('graphics', 'height', '640')
 
 from kivy.resources import resource_find
 
-path = resource_find('Assets/Kalameh-Regular.ttf')
+path = resource_find('Assets/B-NAZANIN.TTF')
 Config.set('kivy','default_font',[path,path,path,path])
 
 
@@ -1932,6 +1932,7 @@ class MainApp(App):
         self.layout.size = (360, Window.height)
 
 
+        self.layout.add_widget(BlueScreen())
         self.layout.add_widget(BlueScreen())
 
 
