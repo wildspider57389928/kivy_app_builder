@@ -13,7 +13,7 @@ package.domain = org.jadval.zarb
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = 
+source.include_exts = ttf,txt,py,kv,jpg,png,mp3
 
 # (list) List of inclusions using pattern matching
 source.include_patterns = Assets/*,Data/*
