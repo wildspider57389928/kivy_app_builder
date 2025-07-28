@@ -376,7 +376,7 @@ class MainApp(App):
     def build(self):
         self.layout_progress=FloatLayout()
         self.layout_progress.add_widget(BlueScreen())
-        self.progress=ProgressBar(max=100,size_hint=(None,None),size=(350,200),pos=(50,100))
+        self.progress=ProgressBar(max=100,size_hint=(None,None),size=(Window.width,200),pos=(50,100))
         self.loading=Label(text=convert_to_persian("در حال بارگزاری..."),pos=(0,-250),font_size=40)
         self.layout_progress.add_widget(Label(text=convert_to_persian('خوش آمدید'),pos=(125,300),font_size=50,text_size=(450,None)))
         self.layout_progress.add_widget(self.loading)
@@ -802,7 +802,7 @@ class MainApp(App):
           self.layout.clear_widgets()
 
 
-          self.layout.size=(360,1000)
+          self.layout.size=(360,Window.height)
 
 
           self.layout.add_widget(BlueScreen())
@@ -832,7 +832,7 @@ class MainApp(App):
           self.layout.clear_widgets()
 
 
-          self.layout.size=(360,1000)
+          self.layout.size=(360,Window.height)
 
 
           self.layout.add_widget(BlueScreen())
@@ -862,7 +862,7 @@ class MainApp(App):
           self.layout.clear_widgets()
 
 
-          self.layout.size=(360,1000)
+          self.layout.size=(360,Window.height)
 
 
           self.layout.add_widget(BlueScreen())
@@ -907,16 +907,16 @@ class MainApp(App):
           self.layout.add_widget(Label(pos=(0,300),text=convert_to_persian(question),halign='right',valign='top',font_size=25,color=(1,1,1,1)))
 
 
-          self.btn1=Button(text=convert_to_persian(answers[0]),pos=(25,500),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
+          self.btn1=Button(text=convert_to_persian(answers[0]),pos=(250,1400),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
 
 
-          self.btn2=Button(text=convert_to_persian(answers[1]),pos=(225,500),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
+          self.btn2=Button(text=convert_to_persian(answers[1]),pos=(450,1400),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
 
 
-          self.btn3=Button(text=convert_to_persian(answers[2]),pos=(25,300),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
+          self.btn3=Button(text=convert_to_persian(answers[2]),pos=(250,1200),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
 
 
-          self.btn4=Button(text=convert_to_persian(answers[3]),pos=(225,300),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
+          self.btn4=Button(text=convert_to_persian(answers[3]),pos=(450,1200),font_size=25,color=(1,1,1,1),size_hint=(None,None),size=(200,200),border=(1,1,1,1))
 
 
           self.btn1.bind(on_press=self.choice_math)
@@ -1486,7 +1486,7 @@ class MainApp(App):
                 self.preview=Popup(title=convert_to_persian('(مرحله معمولی)')+str(data_get(get_user(),'Level_jadval_zarb'))+convert_to_persian('مرحله '),title_size='25',content=content, size_hint=(None, None), size=(450, 500))
 
 
-                content.add_widget(Button(text=convert_to_persian('شروع'),font_size=30,color=(0,1,1,1),size_hint=(None, None),size=(400,50),pos=(25,200),on_press=self.level,pos_hint={"x":0.5,"y":1}))
+                content.add_widget(Button(text=convert_to_persian('شروع'),font_size=30,color=(0,1,1,1),size_hint=(None, None),size=(400,50),pos=(25,200),on_press=self.level,pos_hint={"x":0,"y":0}))
 
 
             elif data_get(get_user(),'Level_jadval_zarb') in speed_levels:
@@ -1948,7 +1948,7 @@ class MainApp(App):
         x_offset = 385
 
 
-        y_offset = 1600
+        y_offset = 1550
 
 
         for row in range(3):
