@@ -1948,7 +1948,7 @@ class MainApp(App):
         x_offset = 385
 
 
-        y_offset = 1380
+        y_offset = 1420
 
 
         for row in range(3):
@@ -2404,7 +2404,7 @@ class MainApp(App):
         self.timer_loop_color=Clock.schedule_interval(self.update_color, 1)
 
 
-        self.correct_incorrect=Label(pos=(0,-100),text='',font_size=40)
+        self.correct_incorrect=Label(pos=(0,-120),text='',font_size=60)
 
 
         self.layout.add_widget(self.correct_incorrect)
