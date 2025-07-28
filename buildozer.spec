@@ -37,7 +37,7 @@ version = 3.0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,python-bidi,arabic_reshaper,android,plyer
+requirements = python3,kivy,python-bidi==0.4.2,arabic_reshaper,android,plyer
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
