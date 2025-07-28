@@ -124,28 +124,28 @@ LabelBase.register(name='Arial', fn_regular='Assets/Arialn.ttf')
 def convert_to_persian(text):
 
 
-     reshaped_text =text# arabic_reshaper.reshape(text)
+     reshaped_text=arabic_reshaper.reshape(text)
 
 
-     counter = 0
+     counter=0
 
 
      for i in range(len(reshaped_text)):
 
 
-         if counter >= 40 and reshaped_text[i] == ' ':
+         if counter>=40 and reshaped_text[i]==' ':
 
 
-             reshaped_text = reshaped_text[:i] + '\n' + reshaped_text[i+1:]
+             reshaped_text=reshaped_text[:i]+'\n'+reshaped_text[i+1:]
 
 
              counter=0
 
 
-         counter += 1
+         counter+=1
 
 
-     bidi_text =reshaped_text# get_display(reshaped_text)
+     bidi_text=get_display(reshaped_text)
 
 
      return bidi_text
