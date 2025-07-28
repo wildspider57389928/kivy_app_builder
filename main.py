@@ -22,7 +22,7 @@ Config.set('graphics', 'height', '640')
 
 from kivy.resources import resource_find
 
-path = resource_find('assets/Assets/Kalameh-Regular.ttf')
+path = resource_find('Assets/Kalameh-Regular.ttf')
 Config.set('kivy','default_font',[path,path,path,path])
 
 
