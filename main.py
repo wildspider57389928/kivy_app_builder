@@ -1021,28 +1021,29 @@ class MainApp(App):
             self.layout.clear_widgets()
 
 
-            self.layout.size=(360,1000)
+            self.layout.size=(360,Window.height)
 
 
             self.layout.add_widget(BlueScreen())
 
 
-            self.layout.add_widget(Label(text=convert_to_persian('مرحله به پایان رسید'),pos=(0,300),font_size=38,color=(0,0,0,1)))
+            self.layout.add_widget(Label(text=convert_to_persian('مرحله به پایان رسید'),pos=(0,300),font_size=60,color=(0,0,0,1),pos_hint={"x":0,"y":0.4}))
 
 
-            self.layout.add_widget(Label(text=str(self.correct)+convert_to_persian('پاسخ های درست:'),pos=(0,100),font_size=25))
+            self.layout.add_widget(Label(text=str(self.correct)+convert_to_persian('پاسخ های درست:'),pos=(0,100),font_size=50,pos_hint={"x":0,"y":0.3},color=(0,0,0,1)))
 
 
-            self.layout.add_widget(Label(text=str(self.incorrect)+convert_to_persian('پاسخ های نادرست:'),pos=(0,50),font_size=25))
+            self.layout.add_widget(Label(text=str(self.incorrect)+convert_to_persian('پاسخ های نادرست:'),pos=(0,50),font_size=50,pos_hint={"x":0,"y":0.2},color=(0,0,0,1)))
 
 
-            self.layout.add_widget(Label(text=str(self.correct*3)+convert_to_persian('مقدار سکه:'),pos=(0,0),font_size=25))
+            self.layout.add_widget(Label(text=str(self.correct*3)+convert_to_persian('مقدار سکه:'),pos=(0,0),font_size=50,pos_hint={"x":0,"y":0.1},color=(0,0,0,1)))
 
 
-            self.layout.add_widget(Label(text=str(self.correct*5)+convert_to_persian('مقدار امتیاز:'),pos=(0,-50),font_size=25))
+            self.layout.add_widget(Label(text=str(self.correct*5)+convert_to_persian('مقدار امتیاز:'),pos=(0,-50),font_size=50,pos_hint={"x":0,"y":0},color=(0,0,0,1)))
+		
 
+            self.layout.add_widget(Button(text=convert_to_persian('خروج'),pos=(125,350),size_hint=(0.7,0.2),size=(200,50),font_size=50,on_press=self.math,pos_hint={"x":0.15,"y":0.2}))
 
-            self.layout.add_widget(Button(text=convert_to_persian('خروج'),pos=(125,350),size_hint=(None,None),size=(200,50),font_size=25,on_press=self.math))
 
 
             data_edit(get_user(),'Coin',int(data_get(get_user(),'Coin'))+self.correct*3)
@@ -1111,28 +1112,28 @@ class MainApp(App):
                 self.layout.clear_widgets()
 
 
-                self.layout.size=(360,1000)
+                self.layout.size=(360,Window.height)
 
 
                 self.layout.add_widget(BlueScreen())
 
 
-                self.layout.add_widget(Label(text=convert_to_persian('مرحله به پایان رسید'),pos=(0,300),font_size=38,color=(0,0,0,1)))
+                self.layout.add_widget(Label(text=convert_to_persian('مرحله به پایان رسید'),pos=(0,300),font_size=60,color=(0,0,0,1),pos_hint={"x":0,"y":0.4}))
 
 
-                self.layout.add_widget(Label(text=str(self.correct)+convert_to_persian('پاسخ های درست:'),pos=(0,100),font_size=25))
+                self.layout.add_widget(Label(text=str(self.correct)+convert_to_persian('پاسخ های درست:'),pos=(0,100),font_size=50,pos_hint={"x":0,"y":0.3},color=(0,0,0,1)))
 
 
-                self.layout.add_widget(Label(text=str(self.incorrect)+convert_to_persian('پاسخ های نادرست:'),pos=(0,50),font_size=25))
+                self.layout.add_widget(Label(text=str(self.incorrect)+convert_to_persian('پاسخ های نادرست:'),pos=(0,50),font_size=50,pos_hint={"x":0,"y":0.2},color=(0,0,0,1)))
 
 
-                self.layout.add_widget(Label(text=str(self.correct*3)+convert_to_persian('مقدار سکه:'),pos=(0,0),font_size=25))
+                self.layout.add_widget(Label(text=str(self.correct*3)+convert_to_persian('مقدار سکه:'),pos=(0,0),font_size=50,pos_hint={"x":0,"y":0.1},color=(0,0,0,1)))
 
 
-                self.layout.add_widget(Label(text=str(self.correct*5)+convert_to_persian('مقدار امتیاز:'),pos=(0,-50),font_size=25))
+                self.layout.add_widget(Label(text=str(self.correct*5)+convert_to_persian('مقدار امتیاز:'),pos=(0,-50),font_size=50,pos_hint={"x":0,"y":0},color=(0,0,0,1)))
+		
 
-
-                self.layout.add_widget(Button(text=convert_to_persian('خروج'),pos=(125,350),size_hint=(None,None),size=(200,50),font_size=25,on_press=self.math))
+                self.layout.add_widget(Button(text=convert_to_persian('خروج'),pos=(125,350),size_hint=(0.7,0.2),size=(200,50),font_size=50,on_press=self.math,pos_hint={"x":0.15,"y":0.2}))
 
 
                 data_edit(get_user(),'Coin',int(data_get(get_user(),'Coin'))+self.correct*3)
@@ -2444,16 +2445,16 @@ class MainApp(App):
                 self.layout.add_widget(Label(text=convert_to_persian('مرحله به پایان رسید'),pos=(0,300),font_size=60,color=(0,0,0,1),pos_hint={"x":0,"y":0.4}))
 
 
-                self.layout.add_widget(Label(text=str(self.correct_color)+convert_to_persian('پاسخ های درست:'),pos=(0,100),font_size=50,pos_hint={"x":0,"y":0.3}))
+                self.layout.add_widget(Label(text=str(self.correct_color)+convert_to_persian('پاسخ های درست:'),pos=(0,100),font_size=50,pos_hint={"x":0,"y":0.3},color=(0,0,0,1)))
 
 
-                self.layout.add_widget(Label(text=str(self.incorrect_color)+convert_to_persian('پاسخ های نادرست:'),pos=(0,50),font_size=50,pos_hint={"x":0,"y":0.2}))
+                self.layout.add_widget(Label(text=str(self.incorrect_color)+convert_to_persian('پاسخ های نادرست:'),pos=(0,50),font_size=50,pos_hint={"x":0,"y":0.2},color=(0,0,0,1)))
 
 
-                self.layout.add_widget(Label(text=str(self.correct_color*3)+convert_to_persian('مقدار سکه:'),pos=(0,0),font_size=50,pos_hint={"x":0,"y":0.1}))
+                self.layout.add_widget(Label(text=str(self.correct_color*3)+convert_to_persian('مقدار سکه:'),pos=(0,0),font_size=50,pos_hint={"x":0,"y":0.1},color=(0,0,0,1)))
 
 
-                self.layout.add_widget(Label(text=str(self.correct_color*5)+convert_to_persian('مقدار امتیاز:'),pos=(0,-50),font_size=50,pos_hint={"x":0,"y":0}))
+                self.layout.add_widget(Label(text=str(self.correct_color*5)+convert_to_persian('مقدار امتیاز:'),pos=(0,-50),font_size=50,pos_hint={"x":0,"y":0},color=(0,0,0,1)))
 
 
                 self.layout.add_widget(Button(text=convert_to_persian('خروج'),pos=(125,350),size_hint=(0.7,0.2),size=(200,50),font_size=50,on_press=self.Tab2_drawer,pos_hint={"x":0.15,"y":0.2}))
@@ -2776,16 +2777,16 @@ class MainApp(App):
             self.layout.add_widget(Label(text=convert_to_persian('مرحله به پایان رسید'),pos=(0,300),font_size=60,color=(0,0,0,1),pos_hint={"x":0,"y":0.4}))
 
 
-            self.layout.add_widget(Label(text=str(self.correct)+convert_to_persian('پاسخ های درست:'),pos=(0,100),font_size=50,pos_hint={"x":0,"y":0.3}))
+            self.layout.add_widget(Label(text=str(self.correct)+convert_to_persian('پاسخ های درست:'),pos=(0,100),font_size=50,pos_hint={"x":0,"y":0.3},color=(0,0,0,1)))
 
 
-            self.layout.add_widget(Label(text=str(self.incorrect)+convert_to_persian('پاسخ های نادرست:'),pos=(0,50),font_size=50,pos_hint={"x":0,"y":0.2}))
+            self.layout.add_widget(Label(text=str(self.incorrect)+convert_to_persian('پاسخ های نادرست:'),pos=(0,50),font_size=50,pos_hint={"x":0,"y":0.2},color=(0,0,0,1)))
 
 
-            self.layout.add_widget(Label(text=str(self.correct*3)+convert_to_persian('مقدار سکه:'),pos=(0,0),font_size=50,pos_hint={"x":0,"y":0.1}))
+            self.layout.add_widget(Label(text=str(self.correct*3)+convert_to_persian('مقدار سکه:'),pos=(0,0),font_size=50,pos_hint={"x":0,"y":0.1},color=(0,0,0,1)))
 
 
-            self.layout.add_widget(Label(text=str(self.correct*5)+convert_to_persian('مقدار امتیاز:'),pos=(0,-50),font_size=50,pos_hint={"x":0,"y":0}))
+            self.layout.add_widget(Label(text=str(self.correct*5)+convert_to_persian('مقدار امتیاز:'),pos=(0,-50),font_size=50,pos_hint={"x":0,"y":0},color=(0,0,0,1)))
 
 
             self.layout.add_widget(Button(text=convert_to_persian('خروج'),pos=(125,350),size_hint=(0.7,0.2),size=(200,50),font_size=50,on_press=self.jadval_zarb,pos_hint={"x":0.15,"y":0.2}))
