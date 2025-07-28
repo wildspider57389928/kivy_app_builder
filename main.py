@@ -20,8 +20,11 @@ Config.set('graphics', 'width', '360')
 
 Config.set('graphics', 'height', '640')
 
+from kivy.resources import resource_find
 
-Config.set('kivy','default_font',[f'{os.path.join(app_storage_path(), "Assets")}/Kalameh-Regular.ttf',f'{os.path.join(app_storage_path(), "Assets")}/Kalameh-Regular.ttf',f'{os.path.join(app_storage_path(), "Assets")}/Kalameh-Regular.ttf',f'{os.path.join(app_storage_path(), "Assets")}/Kalameh-Regular.ttf'])
+path = resource_find('assets/Assets/Kalameh-Regular.ttf')
+Config.set('kivy','default_font',[path,path,path,path])
+
 
 
 from kivy.app import App
