@@ -216,7 +216,7 @@ def get_user():
 def data_edit(user,key,value):
 
 
-    with open(f'{os.path.join(app_storage_path(), "AppData")}sys11209.json', 'r') as data:
+    with open(f'{os.path.join(app_storage_path(), "AppData")}/sys11209.json', 'r') as data:
 
 
             loaded=json.load(data)
@@ -1948,7 +1948,7 @@ class MainApp(App):
         x_offset = 385
 
 
-        y_offset = 1420
+        y_offset = 1600
 
 
         for row in range(3):
