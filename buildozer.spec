@@ -1,13 +1,13 @@
 [app]
 
 # (str) Title of your application
-title = My Application
+title = Jadval Zarb
 
 # (str) Package name
-package.name = myapp
+package.name = jadvalzarb
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.jadval.zarb
+package.domain = org.mbb.co
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -29,7 +29,7 @@ source.include_patterns = Assets/*,Data/*
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1
+version = 3.0.1
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
