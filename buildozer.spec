@@ -7,7 +7,7 @@ title = Jadval Zarb
 package.name = jadvalzarb
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.mbb.co
+package.domain = org.mbb
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -44,7 +44,7 @@ requirements = python3,kivy,python-bidi==0.4.2,arabic_reshaper,android,plyer
 # requirements.source.kivy = ../../kivy
 
 # (str) Presplash of the application
-#presplash.filename = %(source.dir)s/data/presplash.png
+presplash.filename =
 
 # (str) Icon of the application
 icon.filename = %(source.dir)s/icon.png
