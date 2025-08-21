@@ -274,7 +274,34 @@ class BlueScreen(Widget):
 
 
         self.rect.size = self.size
+class GrayScreen(Widget):
 
+
+    def __init__(self, **kwargs):
+
+
+        super().__init__(**kwargs)
+
+
+        with self.canvas:
+
+
+            Color(0.502, 0.502, 0.502,1)
+
+
+            self.rect = Rectangle(pos=self.pos, size=self.size)
+
+
+        self.bind(pos=self.update_rect, size=self.update_rect)
+
+
+    def update_rect(self, *args):
+
+
+        self.rect.pos = self.pos
+
+
+        self.rect.size = self.size
 
 class ImageButton(FloatLayout):
 
@@ -355,7 +382,7 @@ class ImageButtonWithPos(FloatLayout):
 class Product(FloatLayout):
     def __init__(self, name, description, price, **kwargs):
         super().__init__(**kwargs)        
-        self.add_widget(BlueScreen(size_hint=(1,1),pos_hint={"x":0,"y":0}))        
+        self.add_widget(GrayScreen(size_hint=(1,1),pos_hint={"x":0,"y":0}))        
         self.add_widget(Label(text=convert_to_persian(name),
                               pos_hint={"x": 0.2, "y": 0.3},
                               font_size=70,
