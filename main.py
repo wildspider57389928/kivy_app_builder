@@ -1276,6 +1276,7 @@ class MainApp(App):
 
         self.layout.add_widget(BlueScreen())
 
+        self.layout.add_widget(BlueScreen())
 
         coins_layout=FloatLayout()
 
@@ -1355,6 +1356,7 @@ class MainApp(App):
 
         self.layout.add_widget(BlueScreen())
 
+        self.layout.add_widget(BlueScreen())
         img=ImageButton(resource_find('Assets/toolbar.png'),resource_find('Assets/toolbar.png'),(0,0.949),(1,0.05),'',lambda instance:'')
         
         self.layout.add_widget(img)
@@ -1439,7 +1441,7 @@ class MainApp(App):
         choose=Spinner(text=convert_to_persian('انتخاب کاربر پیشفرض'),pos=(0,1250),size_hint=(1,None),size=(300,100),pos_hint={"x":0})
 
 
-        entry=TextInput(hint_text=convert_to_persian('نام کاربر'), size_hint=(1, None), size=(300, 300), pos=(0, 950),pos_hint={"x":0})
+        entry=TextInput(hint_text=convert_to_persian('نام کاربر'), size_hint=(1, None), size=(300, 300), pos=(0, 950),pos_hint={"x":0},disabled=True)
 
 
         self.layout.add_widget(entry)
