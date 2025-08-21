@@ -1283,7 +1283,7 @@ class MainApp(App):
         boosters_layout=FloatLayout()
 
 
-        panel=TabbedPanel(do_default_tab=False,tab_pos='top_mid',pos_hint={"x":0.27,"y":0.45},size_hint=(None, None),size=(460,1800),background_color=(0,0,1,0))
+        panel=TabbedPanel(do_default_tab=False,tab_pos='top_mid',pos_hint={"x":0.27,"y":0.45},size_hint=(1, None),height=1800,background_color=(0,0,1,0))
 
 
         panel.add_widget(TabbedPanelItem(text=convert_to_persian('سکه'), content=coins_layout,size_hint_x=0.5))
