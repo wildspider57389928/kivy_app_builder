@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = Jadval Zarb
+title = بازی جدول ضرب
 
 # (str) Package name
 package.name = jadvalzarb
@@ -44,7 +44,7 @@ requirements = python3,kivy,python-bidi==0.4.2,arabic_reshaper,android,plyer
 # requirements.source.kivy = ../../kivy
 
 # (str) Presplash of the application
-presplash.filename =
+presplash.filename = %(source.dir)s/transparent.png
 
 # (str) Icon of the application
 icon.filename = %(source.dir)s/icon.png
